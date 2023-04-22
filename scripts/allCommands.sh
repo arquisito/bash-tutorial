@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo -en "\n"
-echo "Enter the number of the command you would like to learn about. If you would like an overview of bash terminology, enter 1:"
-
+echo "Enter the number of the command you would like to learn about. If you would like an overview of bash terminology, enter 0:"
+echo -en "\n"
 echo "0. Bash terminology"
 echo "1. pwd (Print Working Directory)"
 echo "2. cd (Change Directory)"
