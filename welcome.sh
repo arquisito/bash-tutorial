@@ -1,5 +1,6 @@
 #!/bin/bash
 
+clear
 echo -en "\n"
 echo "Welcome to the bash command tutorial!"
 echo "The purpose of this program is to teach you how to use basic bash commands in your terminal."
@@ -16,11 +17,11 @@ while [ "${keepGoing}" = true ]; do
 	echo "2. List commands"
 	echo "3. Exit"
 	echo -en "\n"
-	read input
+	read -p "> " input
 	if [ "${input}" == "1" ]; then
 		#go to full tutorial
 		keepGoing=false
-		bash ./scripts/fullTutorial.sh
+		bash ./scripts/pwd.sh
 	elif [ "${input}" == "2" ]; then
 		#list commands
 		keepGoing=false
@@ -31,8 +32,10 @@ while [ "${keepGoing}" = true ]; do
 		echo -en "\n"
 		echo "You have chosen to exit the bash tutorial. We hope you liked it!"
 		echo "Remember, you can always run \`bash welcome.sh\` to do this tutorial again!"
+		echo -en "\n"
 	else
 		echo -en "\n"
 		echo "Your input did not match any of the options we gave you. Please try again."
+		sleep 2
 	fi
 done

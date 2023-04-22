@@ -18,17 +18,21 @@ echo "11. chmod (Change Mode)"
 echo "12. history (Print History)"
 echo "13. Return to menu"
 echo -en "\n"
-read input
+read -p "> " input
 
 if [ "${input}" == "0" ]; then
 	#list bash terminology
 	echo "You entered 0."
 elif [ "${input}" == "1" ]; then
 	#go to pwd
-	echo "You entered 1."
+	echo "Loading tutorial 1: pwd..."
+	sleep 2
+	bash ./scripts/pwd.sh
 elif [ "${input}" == "2" ]; then
 	#go to cd
-	echo "You entered 2."
+	echo "Loading tutorial 2: cd..."
+	sleep 2
+	bash ./scripts/cd.sh
 elif [ "${input}" == "3" ]; then
         #go to ls
         echo "You entered 3."
