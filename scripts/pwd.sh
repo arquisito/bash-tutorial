@@ -88,7 +88,7 @@ done
 
 if [ ${skip} = true ]; then
 	sleep 2
-	bash ./scripts/cd.sh
+	bash ./scripts/ls.sh
 elif [ ${menu} = true ]; then
 	sleep 2
 	bash ./welcome.sh
