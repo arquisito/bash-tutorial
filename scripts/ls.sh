@@ -5,15 +5,9 @@ echo "2. ls"
 echo -en "\n"
 echo "ls stands for 'List'."
 echo "This command will print a list of the files and directories in your current directory."
+echo -en "\n"
 echo "This is the syntax for the ls command:"
 echo "ls [flags] [directory]"
-
-str1="You can print the lists of other directories using these commands:"
-str2="ls [path to directory]        	lists files and directories from said directory"
-str3="ls /                          	lists from the root directory"
-str4="ls ..                         	lists from the parent directory before the current one"
-str5="ls ../..                      	lists from the parent directory two steps up"
-str6="ls ~                          	lists from the user's home directory"
 
 directoryInfo=("You can print the lists of other directories using these commands:"
 "ls [path to directory]        	lists files and directories from said directory"
@@ -21,6 +15,10 @@ directoryInfo=("You can print the lists of other directories using these command
 "ls ..                         	lists from the parent directory before the current one"
 "ls ../..                      	lists from the parent directory two steps up"
 "ls ~                          	lists from the user's home directory")
+
+flagInfo=("Here are some useful flags for the ls command, which can be used in tandem with the directory shortcuts:"
+"ls -d */			lists only directories"
+"ls -R				lists all files and directories as well as their subdirectories down to the last file"
 
 for ((x = 0; x < ${#directoryInfo[@]}; x++)) ; do
     echo "${directoryInfo[$x]}"
