@@ -8,7 +8,14 @@ echo "This command will print a list of the files and directories in your curren
 echo "This is the syntax for the ls command:"
 echo "ls [flags] [directory]"
 
-directoryInfo=("You can print the lists of other directories using these commands:" "ls [path to directory]        	lists files and directories from said directory" "ls /                          	lists from the root directory" "ls ..                         	lists from the parent directory before the current one" "ls ../..                      	lists from the parent directory two steps up" "ls ~                          	lists from the user's home directory")
+str1="You can print the lists of other directories using these commands:"
+str2="ls [path to directory]        	lists files and directories from said directory"
+str3="ls /                          	lists from the root directory"
+str4="ls ..                         	lists from the parent directory before the current one"
+str5="ls ../..                      	lists from the parent directory two steps up"
+str6="ls ~                          	lists from the user's home directory"
+
+directoryInfo=(str1 str2 str3 str4 str5 str6)
 
 for str in ${directoryInfo[@]} ; do
   echo "${str}"
