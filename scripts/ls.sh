@@ -3,42 +3,53 @@ echo -en "\n"
 echo "2. ls"
 
 echo -en "\n"
-echo "ls stands for 'List'."
+echo -e "ls stands for 'List'.\n"
 echo "This command will print a list of the files and directories in your current directory."
 echo -en "\n"
 echo "This is the syntax for the ls command:"
-echo "  ls [flags] [directory]"
+echo -e "\tls [flags] [directory]"
 
 directoryInfo=("You can print the lists of other directories using these commands:"
-"   ls [path to directory]        	lists files and directories from said directory"
-"   ls /                          	lists from the root directory"
-"   ls ..                         	lists from the parent directory before the current one"
-"   ls ../..                      	lists from the parent directory two steps up"
-"   ls ~                          	lists from the user's home directory")
+"\tls [path to directory]\t\tlists files and directories from said directory"
+"\tls /\t\t\t\tlists from the root directory"
+"\tls ..\t\t\t\tlists from the parent directory before the current one"
+"\tls ../..\t\t\tlists from the parent directory two steps up"
+"\tls ~\t\t\t\tlists from the user's home directory")
 
 flagInfo=("Here are some useful flags for the ls command, which can be used in tandem with the directory shortcuts:"
-"   ls -d */			lists only directories"
-"   ls -R				lists all files and directories as well as their subdirectories down to the last file"
-"   ls -l              lists all files in a table form with columns for permissions, number of links, group owner,"
-"                          size (in bytes), last modified date / time, and file or directory name"
-"   ls -a              lists all files and directories, including hidden ones (any that begin with a . )"
-"   ls -t              lists all files and directories sorted by last modified date in descending order (of size in bytes)"
-"   ls -S              lists all files and directories in descending order of size (in bytes)"
-"   ls -r              lists all files and directories in reverse of the default (or specified) sorting order"
+"\tls -d */\t\t\tlists only directories"
+"\tls -R\t\t\t\tlists all files and directories as well as their subdirectories down to"
+"\t\t\t\t\t   the last file"
+"\tls -l\t\t\t\tlists all files in a table form with columns for permissions, number of links,"
+"\t\t\t\t\t   group owner, size (in bytes), last modified date / time, and file or"
+"\t\t\t\t\t   directory name"
+"\tls -a\t\t\t\tlists all files and directories, including hidden ones (any that begin with '.')"
+"\tls -t\t\t\t\tlists all files and directories sorted by last modified date in descending order"
+"\t\t\t\t\t   (of size in bytes)"
+"\tls -S\t\t\t\tlists all files and directories in descending order of size (in bytes)"
+"\tls -r\t\t\t\tlists all files and directories in reverse of the default (or specified)"
+"\t\t\t\t\t   sorting order\n"
 "You can use multiple flags at the same time and in any order to retrieve specific info. For example:"
-"   ls -l -a        ls -a -l        ls -la      ls -al      -- these all return the same information"
+"\tls -l -a\tls -a -l\tls -la\t\tls -al\t\t-- these all return the same information\n"
 "You can also store the results of your command in a text file rather than print the results outright."
-"   ls -la > file.txt"
-"You can access this non-printed information using the cat command, although for now you don't have to worry about that, as the cat tutorial is later on.")
+"\tls -la > file.txt"
+"\nYou can access this non-printed information using the cat command, although for now you don't have to worry about that,"
+"as the cat tutorial is later on.\n")
 
 echo -en "\n"
 for ((x = 0; x < ${#directoryInfo[@]}; x++)) ; do
-    echo "${directoryInfo[$x]}"
+    echo -e "${directoryInfo[$x]}"
 done
+
+echo -en "\n"
+read -p "(Press enter to continue.) >" ans
+
 echo -en "\n"
 for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
-    echo "${flagInfo[$x]}"
+    echo -e "${flagInfo[$x]}"
 done
+
+read -p "(Press enter to continue.) >" ans
 
 skip=false
 menu=false
@@ -55,10 +66,10 @@ while [ ${keepGoing} = true ]; do
 	if [ "${input}" == "1" ]; then
 		# practice
 		echo -en "\n"
-		echo "Practice Problem:"
-		echo "Use the ls command to find the name of the file or directory that is the smallest size. Then, enter the name of that directory or file."
-		echo "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu':"
-        echo "If you need the list of directory info, enter 'directory info'; for flags, enter 'flags'."
+		echo -e "Practice Problem:\n"
+		echo -e "Use the ls command to find the name of the file or directory that is the smallest size.\nThen, enter the name of that directory or file.\n" | fold -w100 -s
+		echo -e "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu'.\n" | fold -w100 -s
+        echo "If you need the list of directory info, enter 'info'; for flags, enter 'flags':"
 		problemBoolean=true
         
         answerKey=`ls -rS | head -n 1`
@@ -79,15 +90,17 @@ while [ ${keepGoing} = true ]; do
 				keepGoing=false
 				skip=true
 			elif [ "${answer}" == "solve" ]; then
+				echo -e "\n***"
 				echo -en "\n"
-				echo "The answer to this question is \'${answerKey}\'."
+				echo -e "The answer to this question is '${answerKey}'.\n"
 				echo "There are multiple ways to find this answer, but the way we did it was with the command 'ls -rS'."
-                echo "The '-rS' flags sort the list according to size in reverse order."
+                		echo "The '-rS' flags sort the list according to size in reverse order."
 				echo -en "\n"
 				echo "> ls -rS"
 				ls -rS
 				echo -en "\n"
-				echo "As you can see, \'${answerKey}\' appears at the top, indicating that it is the smallest-sized."
+				echo "As you can see, '${answerKey}' appears at the top, indicating that it is the smallest-sized."
+				echo -e "\n***\n"
 				problemBoolean=false
 			elif [ "${answer}" == "menu" ]; then
 				echo -en "\n"
@@ -95,22 +108,20 @@ while [ ${keepGoing} = true ]; do
 				problemBoolean=false
 				keepGoing=false
 				menu=true
-            elif [ "${answer}" == "directory info" ]; then
+            elif [ "${answer}" == "info" ]; then
 				echo -en "\n"
                 for ((x = 0; x < ${#directoryInfo[@]}; x++)) ; do
-                    echo "${directoryInfo[$x]}"
+                    echo -e "${directoryInfo[$x]}"
                 done
-            elif [ "${answer}" == "flag" ]; then
+            elif [ "${answer}" == "flags" ]; then
 				echo -en "\n"
                 for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
-                    echo "${flagInfo[$x]}"
+                    echo -e "${flagInfo[$x]}"
                 done
 			else
 				${answer}
-				if [ $? -eq 0 ]; then
-    					#the command just works
-				else
-    					echo "Command failed. Try another input."
+				if [ $? -ne 0 ]; then
+					echo "Command failed. Try another input."
 					sleep 2
 				fi
 			fi

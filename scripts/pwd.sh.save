@@ -4,9 +4,8 @@ echo "1. pwd"
 
 echo -en "\n"
 echo "pwd stands for 'Print Working Directory'."
-echo -en "\n"
-echo "This command will print the full path of the directory you are currently working in, starting from the root directory." | fold -w100 -s
-echo "pwd accepts two potential arguments, however they will not be covered because they refer to commands that are not in this tutorial." | fold -w100 -s
+echo "This command will print the full path of the directory you are currently working in, starting from the root directory." | fold -s
+echo "pwd accepts two potential arguments, however they will not be covered because they refer to commands that are not in this tutorial." | fold -s
 
 skip=false
 menu=false
@@ -23,9 +22,9 @@ while [ ${keepGoing} = true ]; do
 	if [ "${input}" == "1" ]; then
 		# practice
 		echo -en "\n"
-		echo -e "Practice Problem:\n"
-		echo -e "Use the pwd command to find the name of the current directory (it is included in the full path). Then, enter the name of the current directory.\n" | fold -w100 -s
-		echo "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu':" | fold -w100 -s
+		echo "Practice Problem:"
+		echo "Use the pwd command to find the name of the current directory (it is included in the full path). Then, enter the name of the current directory."
+		echo "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu':"
 		problemBoolean=true
 
 		while [ ${problemBoolean} = true ]; do
@@ -48,15 +47,13 @@ while [ ${keepGoing} = true ]; do
 				skip=true
 			elif [ "${answer}" == "solve" ]; then
 				echo -en "\n"
-				echo -e "***\n"
-				echo -e "The answer to this question is 'bash-tutorial'.\n"
-				echo "To find this answer, you would have to enter 'pwd'. This would show you the full path of the current directory, with the current directory appearing at the end:" | fold -w100 -s
+				echo "The answer to this question is 'bash-tutorial'."
+				echo "To find this answer, you would have to enter 'pwd'. This would show you the full path of the current directory, with the current directory appearing at the end:"
 				echo -en "\n"
 				echo "> pwd"
 				pwd
 				echo -en "\n"
 				echo "As you can see, 'bash-tutorial' is the directory name."
-				echo -e "\n***\n"
 				problemBoolean=false
 			elif [ "${answer}" == "menu" ]; then
 				echo -en "\n"
