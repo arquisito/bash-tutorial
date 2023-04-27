@@ -4,8 +4,8 @@ echo "1. pwd"
 
 echo -en "\n"
 echo "pwd stands for 'Print Working Directory'."
-echo "This command will print the full path of the directory you are currently working in, starting from the root directory."
-echo "pwd accepts two potential arguments, however they will not be covered because they refer to commands that are not in this tutorial."
+echo "This command will print the full path of the directory you are currently working in, starting from the root directory." | fold -s
+echo "pwd accepts two potential arguments, however they will not be covered because they refer to commands that are not in this tutorial." | fold -s
 
 skip=false
 menu=false
@@ -23,8 +23,8 @@ while [ ${keepGoing} = true ]; do
 		# practice
 		echo -en "\n"
 		echo "Practice Problem:"
-		echo "Use the pwd command to find the name of the current directory (it is included in the full path). Then, enter the name of the current directory."
-		echo "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu':"
+		echo "Use the pwd command to find the name of the current directory (it is included in the full path). Then, enter the name of the current directory." | fold -s
+		echo "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu':" | fold -s
 		problemBoolean=true
 
 		while [ ${problemBoolean} = true ]; do
@@ -48,7 +48,7 @@ while [ ${keepGoing} = true ]; do
 			elif [ "${answer}" == "solve" ]; then
 				echo -en "\n"
 				echo "The answer to this question is 'bash-tutorial'."
-				echo "To find this answer, you would have to enter 'pwd'. This would show you the full path of the current directory, with the current directory appearing at the end:"
+				echo "To find this answer, you would have to enter 'pwd'. This would show you the full path of the current directory, with the current directory appearing at the end:" | fold -s
 				echo -en "\n"
 				echo "> pwd"
 				pwd
@@ -63,11 +63,9 @@ while [ ${keepGoing} = true ]; do
 				menu=true
 			else
 				${answer}
-				if [ $? -eq 0 ]; then
-    					#the command just works
-				else
-    					echo "Command failed. Try another input."
-					sleep 2
+				if [ $? -ne 0 ]; then
+    					 echo "Command failed. Try another input."
+                                        sleep 2
 				fi
 			fi
 		done
