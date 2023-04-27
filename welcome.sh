@@ -7,7 +7,7 @@ echo "The purpose of this program is to teach you how to use basic bash commands
 
 echo -en "\n"
 echo "You have the option to complete the entire tutorial at once, or pick a specific command to learn about."
-
+echo "This tutorial builds off of previous lessons, so if you pick a later command, keep in mind that the practice problems may reference or require previous commands." | fold -w100 -s
 keepGoing=true
 
 while [ "${keepGoing}" = true ]; do

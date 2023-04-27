@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo -en "\n"
-echo "Enter the number of the command you would like to learn about:"
+echo -e "Enter the number of the command you would like to learn about.\n"
+echo "This tutorial builds off of previous lessons, so if you pick a later command, keep in mind that the practice problems may reference or require previous commands." | fold -w100 -s
 echo -en "\n"
 echo "1. pwd (Print Working Directory)"
 echo "2. ls (List)"
