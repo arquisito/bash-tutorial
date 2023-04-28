@@ -87,6 +87,11 @@ while [ ${keepGoing} = true ]; do
 	fi
 done
 
+currentDir=`pwd`
+usr=`whoami`
+if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+        cd /home/${usr}/bash-tutorial
+fi
 if [ ${skip} = true ]; then
 	sleep 2
 	bash ./scripts/ls.sh
