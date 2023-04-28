@@ -1,5 +1,11 @@
 #!/bin/bash
 
+currentDir=`pwd`
+usr=`whoami`
+if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+	cd /home/${usr}/bash-tutorial
+fi
+
 clear
 echo -en "\n"
 echo "Welcome to the bash command tutorial!"
