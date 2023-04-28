@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 currentDir=`pwd`
 usr=`whoami`
 if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
@@ -49,47 +51,56 @@ while [ ${keepGoing} = true ]; do
 	elif [ "${input}" == "4" ]; then
 		#go to sudo
 		keepGoing=false
-		echo "You entered 4."
+		echo "Loading tutorial 4: sudo..."
+		sleep 2
 		bash ./scripts/sudo.sh
 	elif [ "${input}" == "5" ]; then
 		#go to mkdir
 		keepGoing=false
-		echo "You entered 5."
+		echo "Loading  tutorial 5: mkdir..."
+		sleep 2
 		bash ./scripts/mkdir.sh
 	elif [ "${input}" == "6" ]; then
 		#go to mv
 		keepGoing=false
-		echo "You entered 6."
+		echo "Loading tutorial 6: mv..."
+		sleep 2
 		bash ./scripts/mv.sh
 	elif [ "${input}" == "7" ]; then
 		#go to cp
 		keepGoing=false
-		echo "You entered 7."
+		echo "Loading tutorial 7: cp..."
+		sleep 2
 		bash ./scripts/cp.sh
 	elif [ "${input}" == "8" ]; then
 		#go to rm
 		keepGoing=false
-		echo "You entered 8."
+		echo "Loading tutorial 8: rm..."
+		sleep 2
 		bash ./scripts/rm.sh
 	elif [ "${input}" == "9" ]; then
-		#go to echo
-		keepGoing=false
-		echo "You entered 9."
-		bash ./scripts/echo.sh
-	elif [ "${input}" == "10" ]; then
 		#go to cat
 		keepGoing=false
-		echo "You entered 10."
+		echo "Loading tutorial 9: cat..."
+		sleep 2
+		bash ./scripts/echo.sh
+	elif [ "${input}" == "10" ]; then
+		#go to nano
+		keepGoing=false
+		echo "Loading tutorial 10: nano..."
+		sleep 2
 		bash ./scripts/cat.sh
 	elif [ "${input}" == "11" ]; then
 		#go to chmod
 		keepGoing=false
-		echo "You entered 11."
+		echo "Loading tutorial 11: chmod..."
+		sleep 2
 		bash ./scripts/chmod.sh
 	elif [ "${input}" == "12" ]; then
 		#go to history
 		keepGoing=false
-		echo "You entered 12."
+		echo "Loading tutorial 12: history..."
+		sleep 2
 		bash ./scripts/history.sh
 	elif [ "${input}" == "13" ]; then
 		#return to menu
