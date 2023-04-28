@@ -24,11 +24,6 @@ for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
     echo -e "${flagInfo[$x]}"
 done
 
-usr=`whoami`
-if [ -d "/home/${usr}/bash-tutorial/practice/myDirectory" ] ; then
-  sudo rm -r "/home/${usr}/bash-tutorial/practice/myDirectory"
-fi
-
 skip=false
 menu=false
 keepGoing=true
@@ -42,6 +37,11 @@ while [ ${keepGoing} = true ]; do
 	read -p "> " input
 
 	if [ "${input}" == "1" ]; then
+	
+		usr=`whoami`
+		if [ -d "/home/${usr}/bash-tutorial/practice/myDirectory" ] ; then
+  			sudo rm -r "/home/${usr}/bash-tutorial/practice/myDirectory"
+		fi
 		# practice
 		echo -en "\n"
 		echo -e "Practice Problem:\n"
@@ -81,7 +81,7 @@ while [ ${keepGoing} = true ]; do
 				echo -e "There are multiple ways to create a directory, but we did it with the following commands:"
 				echo "(Note: This assumes that you are starting in the bash-tutorial directory.)"
 				echo -en "\n"
-				echo "> sudo mkdir -p ./practice/myDirectory (This creates a directory in the 'practice' directory.)"
+				echo -e "> sudo mkdir -p ./practice/myDirectory (This creates a directory in the 'practice' directory.)\n"
 				sudo mkdir -p practice/myDirectory
 				echo "> ls ./practice (This shows the files and directories inside of the 'practice' directory.)"
 				ls ./practice
@@ -131,7 +131,7 @@ if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
 fi
 if [ ${skip} = true ]; then
 	sleep 2
-	bash ./scripts/sudo.sh
+	bash ./scripts/mv.sh
 elif [ ${menu} = true ]; then
 	sleep 2
 	bash ./welcome.sh
