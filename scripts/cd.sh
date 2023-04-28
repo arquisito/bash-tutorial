@@ -1,6 +1,6 @@
 clear
 echo -en "\n"
-echo "2. cd"
+echo "3. cd"
 
 echo -en "\n"
 echo "cd stands for 'Change Directory'."
