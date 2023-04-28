@@ -55,12 +55,11 @@ while [ ${keepGoing} = true ]; do
 			read -p "> " answer
 			if [ "${answer}" == "${answerKey}" ]; then
         if [ -d "/home/${usr}/bash-tutorial/practice/myDirectory" ] ; then
-          sudo touch renameMe.txt /home/${usr}/bash-tutorial/practice/myDirectory
-          echo -en "\n"
-				  echo "Correct! Moving on to the next command."
-				  problemBoolean=false
-				  keepGoing=false
-				  skip=true
+        	echo -en "\n"
+		echo "Correct! Moving on to the next command."
+		problemBoolean=false
+		keepGoing=false
+		skip=true
         else
           echo -e "\nWe could not find the directory we asked you to make. Did you spell it right? Is it in the correct location?\nPlease try again."
         fi
