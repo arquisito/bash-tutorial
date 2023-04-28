@@ -96,7 +96,7 @@ while [ ${keepGoing} = true ]; do
 				problemBoolean=false
 				keepGoing=false
 				menu=true
-      elif [ "${answer}" == "info" ]; then
+      elif [ "${answer}" == "flags" ]; then
 				echo -en "\n"
         for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
             echo -e "${flagInfo[$x]}"
