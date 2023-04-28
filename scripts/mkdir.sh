@@ -4,15 +4,15 @@ echo "5. mkdir"
 
 echo -en "\n"
 echo "mkdir stands for 'Make Directory'."
-echo -e "\nThis command is used to create one or more directories in either the current directory (default) or a specified directory."
+echo -e "\nThis command is used to create one or more directories in either the current directory (default) or a specified directory." | fold -w100 -s
 echo -e "\nDepending on user permissions, the mkdir command may require elevated privileges (sudo) in order to execute."
 echo -en "\n"
 echo "This is the syntax for the mkdir command:"
-echo -e "\tmkdir [flags] [directories ...]"
+echo -e "\tmkdir [flags] [directories]"
 
 flagInfo=("Here are some useful flags for the mkdir command:"
-"\tmkdir -v [directories...]\t\t\tcreates specified directories and displays a message for each one"
-"\tmkdir -m a=rwx [directories...]\t\t\t\tcreates the the listed directories with a specified 'mode' (permissions)"
+"\tmkdir -v [directories]\t\t\tcreates the listed directories and displays a message for each one"
+"\tmkdir -m a=rwx [directories]\t\t\tcreates the listed directories with a specified 'mode' (permissions)"
 "\t\t\t\t\t   (Permissions are touched upon more in the chmod command; for now, just know that a=rwx refers to those permissions)"
 "\tmkdir -p dir1/dir2/dir3\t\t\t\tcreates the listed directories with parent directories in the order listed"
 "\t\t\t\t\t   (if they don't already exist; if they do exist, the non-existing ones get added to the existing ones)")
