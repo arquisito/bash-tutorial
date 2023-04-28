@@ -12,10 +12,12 @@ echo -e "\tmkdir [flags] [directories]"
 
 flagInfo=("Here are some useful flags for the mkdir command:"
 "\tmkdir -v [directories]\t\t\tcreates the listed directories and displays a message for each one"
-"\tmkdir -m a=rwx [directories]\t\t\tcreates the listed directories with a specified 'mode' (permissions)"
-"\t\t\t\t\t   (Permissions are touched upon more in the chmod command; for now, just know that a=rwx refers to those permissions)"
-"\tmkdir -p dir1/dir2/dir3\t\t\t\tcreates the listed directories with parent directories in the order listed"
-"\t\t\t\t\t   (if they don't already exist; if they do exist, the non-existing ones get added to the existing ones)")
+"\tmkdir -m a=rwx [directories]\t\tcreates the listed directories with a specified 'mode' (permissions)"
+"\t\t\t\t\t\t   (Permissions are touched upon more in the chmod command; for now, just know"
+"\t\t\t\t\t\t   that a=rwx refers to those permissions)"
+"\tmkdir -p dir1/dir2/dir3\t\t\tcreates the listed directories with parent directories in the order listed"
+"\t\t\t\t\t\t   (if they don't already exist; if they do exist, the non-existing ones get"
+"\t\t\t\t\t\t   added to the existing ones)")
 
 echo -en "\n"
 for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
