@@ -22,7 +22,7 @@ keepGoing=true
 while [ ${keepGoing} = true ]; do
 	echo -en "\n"
   echo "The sudo command does not really need its own practice problem, as right now you have not learned any commands that can use it." | fold -w100 -s
-  echo "However, the next command tutorial may require its use..."
+  echo "However, the later command tutorials may require its use... so keep it in mind!"
   echo -en "\n"
 	echo "Enter the number of the option you would like to proceed to:"
 	echo "1. Next tutorial"
