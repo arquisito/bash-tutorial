@@ -44,38 +44,47 @@ while [ ${keepGoing} = true ]; do
 		#go to sudo
 		keepGoing=false
 		echo "You entered 4."
+		bash ./scripts/sudo.sh
 	elif [ "${input}" == "5" ]; then
 		#go to mkdir
 		keepGoing=false
 		echo "You entered 5."
+		bash ./scripts/mkdir.sh
 	elif [ "${input}" == "6" ]; then
 		#go to mv
 		keepGoing=false
 		echo "You entered 6."
+		bash ./scripts/mv.sh
 	elif [ "${input}" == "7" ]; then
 		#go to cp
 		keepGoing=false
 		echo "You entered 7."
+		bash ./scripts/cp.sh
 	elif [ "${input}" == "8" ]; then
 		#go to rm
 		keepGoing=false
 		echo "You entered 8."
+		bash ./scripts/rm.sh
 	elif [ "${input}" == "9" ]; then
 		#go to echo
 		keepGoing=false
 		echo "You entered 9."
+		bash ./scripts/echo.sh
 	elif [ "${input}" == "10" ]; then
 		#go to cat
 		keepGoing=false
 		echo "You entered 10."
+		bash ./scripts/cat.sh
 	elif [ "${input}" == "11" ]; then
 		#go to chmod
 		keepGoing=false
 		echo "You entered 11."
+		bash ./scripts/chmod.sh
 	elif [ "${input}" == "12" ]; then
 		#go to history
 		keepGoing=false
 		echo "You entered 12."
+		bash ./scripts/history.sh
 	elif [ "${input}" == "13" ]; then
 		#return to menu
 		keepGoing=false
