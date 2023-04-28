@@ -1,6 +1,6 @@
 clear
 echo -en "\n"
-echo "10. cat"
+echo "9. cat"
 
 echo -en "\n"
 echo "cat is short for 'Concatenate'."
