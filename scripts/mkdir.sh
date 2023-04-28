@@ -78,13 +78,13 @@ while [ ${keepGoing} = true ]; do
 				fi
 				echo -e "\n***"
 				echo -en "\n"
-				echo -e "There are multiple ways to create a directory, but we did it with the following commands:\n"
+				echo -e "There are multiple ways to create a directory, but we did it with the following commands:"
 				echo "(Note: This assumes that you are starting in the bash-tutorial directory.)"
 				echo -en "\n"
-				echo "> sudo mkdir -p practice/myDirectory (This creates a directory in the 'practice' directory.)"
+				echo "> sudo mkdir -p ./practice/myDirectory (This creates a directory in the 'practice' directory.)"
 				sudo mkdir -p practice/myDirectory
 				echo "> ls ./practice (This shows the files and directories inside of the 'practice' directory.)"
-				ls
+				ls ./practice
 				echo -en "\n"
 				echo "As you can see, 'myDirectory' has been added to the 'practice' directory."
 				echo -e "\n***\n"
