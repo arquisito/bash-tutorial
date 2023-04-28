@@ -16,8 +16,8 @@ flagInfo=("Here are some useful flags for the mkdir command:"
 "\t\t\t\t\t\t   (Permissions are touched upon more in the chmod command; for now,"
 "\t\t\t\t\t\t   just know that a=rwx refers to those permissions)"
 "\tmkdir -p dir1/dir2/dir3\t\t\tcreates the listed directories with parent directories in the order"
-"\t\t\t\t\t\t   specified (if they don't already exist; if they do exist, the non-existing"
-"\t\t\t\t\t\t   ones get added to the existing ones)")
+"\t\t\t\t\t\t   specified (if they don't already exist; if they do exist, the"
+"\t\t\t\t\t\t   non-existing ones get added to the existing ones)")
 
 echo -en "\n"
 for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
