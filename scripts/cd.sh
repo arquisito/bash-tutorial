@@ -9,8 +9,8 @@ echo "In fact, in order to access this tutorial, you already used the cd command
 
 echo -en "\n"
 echo "The syntax for cd is as follows:"
-echo -e "\tcd [options] [directory]"
-echo "The options primarily revolve around symlinks, which won't be covered in this tutorial, so we're skipping them."
+echo -e "\tcd [flags] [directory]"
+echo "The flags primarily revolve around symlinks, which won't be covered in this tutorial, so we're skipping them."
 
 info=("There a many shortcuts and options that you can use to change to various directories:"
 "\tcd [path to directory]\t\tchanges directly to the directory specified in the path"
