@@ -83,13 +83,13 @@ while [ ${keepGoing} = true ]; do
 		keepGoing=false
 		echo "Loading tutorial 9: cat..."
 		sleep 2
-		bash ./scripts/echo.sh
+		bash ./scripts/cat.sh
 	elif [ "${input}" == "10" ]; then
 		#go to nano
 		keepGoing=false
 		echo "Loading tutorial 10: nano..."
 		sleep 2
-		bash ./scripts/cat.sh
+		bash ./scripts/nano.sh
 	elif [ "${input}" == "11" ]; then
 		#go to chmod
 		keepGoing=false
