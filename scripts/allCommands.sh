@@ -1,5 +1,11 @@
 #!/bin/bash
 
+currentDir=`pwd`
+usr=`whoami`
+if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+	cd /home/${usr}/bash-tutorial
+fi
+
 echo -en "\n"
 echo -e "Enter the number of the command you would like to learn about.\n"
 echo "This tutorial builds off of previous lessons, so if you pick a later command, keep in mind that the practice problems may reference or require previous commands." | fold -w100 -s
