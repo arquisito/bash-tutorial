@@ -47,3 +47,122 @@ done
 
 echo -en "\n"
 read -p "(Press enter to continue.) >" ans
+
+skip=false
+menu=false
+keepGoing=true
+while [ ${keepGoing} = true ]; do
+	echo -en "\n"
+	echo "Enter the number of the option you would like to proceed to:"
+	echo "1. Practice problem"
+	echo "2. Skip practice / Next tutorial"
+	echo "3. Return to menu"
+	echo -en "\n"
+	read -p "> " input
+    
+	if [ "${input}" == "1" ]; then
+        usr=`whoami`
+	    if [ -d "/home/${usr}/bash-tutorial/practice/myDirectory" ] ; then
+  		    sudo rm -r /home/${usr}/bash-tutorial/practice/myDirectory
+	    fi
+    
+        if [ -f "renamed.txt" ./practice ] ; then
+            sudo mv renamed.txt catMe.txt ./practice
+        fi
+		# practice
+		echo -en "\n"
+		echo -e "Practice Problem:\n"
+		echo -e "Use the mv command to rename the text file inside of the 'practice' directory.\nThen, enter the name of the original file (including the '.txt').\n"
+		echo -e "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu'.\n" | fold -w100 -s
+        	echo "If you need the list of flags, enter 'flags':"
+		problemBoolean=true
+
+    usr=`whoami`
+    answerKey="catMe.txt"
+		while [ ${problemBoolean} = true ]; do
+			echo -en "\n"
+			read -p "> " answer
+			if [ "${answer}" == "${answerKey}" ]; then
+                if [ -f "renamed.txt" ./practice ] ; then
+        	        echo -en "\n"
+		            echo "Correct! Moving on to the next command."
+		            problemBoolean=false
+		            keepGoing=false
+		            skip=true
+                else
+                    echo -e "\nYour answer was correct, but we detect that you did not rename the file correctly.\nPlease try again."
+                fi
+			elif [ "${answer}" == "skip" ]; then
+				echo -en "\n"
+				echo "Moving on to the next command."
+				problemBoolean=false
+				keepGoing=false
+				skip=true
+			elif [ "${answer}" == "solve" ]; then
+				currentDir=`pwd`
+				if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+        				cd /home/${usr}/bash-tutorial
+				fi
+				echo -e "\n***"
+				echo -en "\n"
+				echo -e "There are multiple ways to rename that file, but we did it with the following commands:"
+				echo "(Note: This assumes that you are starting in the bash-tutorial directory.)"
+				echo -en "\n"
+				echo "> cd practice (This moves us to the 'practice' directory, as seen here:)"
+				cd practice
+                pwd
+				echo -e"\n> ls (This shows the files and directories inside of the 'practice' directory.)"
+				ls
+				echo -en "\n"
+				echo "As you can see, 'catMe.txt' is the file we need to rename. We do so like this:"
+                echo -e "\n> sudo mv catMe.txt renamed.txt (sudo permissions are required to rename files.)"
+                sudo mv catMe.txt renamed.txt
+				echo -e "\n***\n"
+				problemBoolean=false
+				cd ..
+			elif [ "${answer}" == "menu" ]; then
+				echo -en "\n"
+				echo "Returning to the menu."
+				problemBoolean=false
+				keepGoing=false
+				menu=true
+      elif [ "${answer}" == "flags" ]; then
+				echo -en "\n"
+        for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
+            echo -e "${flagInfo[$x]}"
+        done
+			else
+				${answer}
+				if [ $? -ne 0 ]; then
+					echo "Command failed. Try another input."
+					sleep 2
+				fi
+			fi
+		done
+	elif [ "${input}" == "2" ]; then
+		echo -en "\n"
+		echo "Moving on to the next command."
+		keepGoing=false
+		skip=true
+	elif [ "${input}" == "3" ]; then
+		echo -en "\n"
+		echo "Returning to the menu."
+		keepGoing=false
+		menu=true
+	else 
+		echo "You entered an invalid input. Please try again."
+	fi
+done
+
+currentDir=`pwd`
+usr=`whoami`
+if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+	cd /home/${usr}/bash-tutorial
+fi
+if [ ${skip} = true ]; then
+	sleep 2
+	bash ./scripts/cp.sh
+elif [ ${menu} = true ]; then
+	sleep 2
+	bash ./welcome.sh
+fi	
