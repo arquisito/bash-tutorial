@@ -40,7 +40,7 @@ while [ ${keepGoing} = true ]; do
 	
 		usr=`whoami`
 		if [ -d "/home/${usr}/bash-tutorial/practice/myDirectory" ] ; then
-  			sudo rm -r "/home/${usr}/bash-tutorial/practice/myDirectory"
+  			sudo rm -r /home/${usr}/bash-tutorial/practice/myDirectory
 		fi
 		# practice
 		echo -en "\n"
