@@ -47,6 +47,11 @@ while [ ${keepGoing} = true ]; do
 				keepGoing=false
 				skip=true
 			elif [ "${answer}" == "solve" ]; then
+				currentDir=`pwd`
+				usr=`whoami`
+				if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+					cd /home/${usr}/bash-tutorial
+				fi
 				echo -en "\n"
 				echo -e "***\n"
 				echo -e "The answer to this question is 'bash-tutorial'.\n"
