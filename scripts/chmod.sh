@@ -63,7 +63,7 @@ while [ ${keepGoing} = true ]; do
     # practice
 		echo -en "\n"
 		echo -e "Practice Problem:\n"
-		echo -e "Inside of the 'practice' directory, there is a new directory called 'chmodDir'.\nUse the chmod command to change the permissions of the file inside of that directory so that it is: 1. Readable, writable, and executable by the owner;\n2. Writable and executable by the group, and\n3. Writable and executable by everyone else.\n" | fold -w100 -s
+		echo -e "Inside of the 'practice' directory, there is a new directory called 'chmodDir'.\nUse the chmod command to change the permissions of the file inside of that directory so that it is: 1. Readable, writable, and executable by the owner;\n2. Writable and executable by the group, and\n3. Writable and executable by everyone else.\nThen, enter 'done' when you are finished.\n" | fold -w100 -s
 		echo -e "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu'.\n" | fold -w100 -s
         	echo "If you need the list of flags, enter 'flags':"
 		problemBoolean=true
@@ -71,12 +71,16 @@ while [ ${keepGoing} = true ]; do
         while [ ${problemBoolean} = true ]; do
 			echo -en "\n"
 			read -p "> " answer
-            if [ ! -r /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] && [ -w /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] && [ -x /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] ; then
-                echo -en "\n"
-		        echo "The file permissions have been changed! Moving on to the next command."
-		        problemBoolean=false
-		        keepGoing=false
-		        skip=true
+		if [ "${answer}" == "done" ] ; then
+			if [ ! -r /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] && [ -w /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] && [ -x /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] ; then
+                		echo -en "\n"
+		        	echo "The file permissions have been changed! Moving on to the next command."
+		        	problemBoolean=false
+		        	keepGoing=false
+		        	skip=true
+			else
+				echo -e "\nThe permissions of the file in the chmodDir directory have not been properly changed.\nPlease try again."
+			fi
             elif [ "${answer}" == "skip" ]; then
 				echo -en "\n"
 				echo "Moving on to the next command."
