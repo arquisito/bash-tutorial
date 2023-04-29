@@ -4,7 +4,12 @@ echo "7. cp"
 
 echo -en "\n"
 echo "cp stands for 'Copy'."
-echo "This command is used to copy individual files, groups of files, or directories from one location to another."
+echo "This command will copy files, groups of files, or directories. It creates an exact image of the specified file on the disk with a different name." | fold -w100 -s
 echo -en "\n"
 echo "This is the syntax for the cp command:"
-echo "  ls [flags] [directory]"
+echo -e "\tcp [flags] [source] [destination]\t\t(copies one file)"
+echo -e "\tcp [flags] [source] [directory]\t\t(copies one file)"
+echo -e "\tcp [flags] [source 1] [source 2] [source 3] [directory]\t(copies multiple files)"
+
+
+
