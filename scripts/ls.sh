@@ -67,7 +67,7 @@ while [ ${keepGoing} = true ]; do
 		# practice
 		echo -en "\n"
 		echo -e "Practice Problem:\n"
-		echo -e "Use the ls command to find the name of the file or directory that is the smallest size.\nThen, enter the name of that directory or file.\n" | fold -w100 -s
+		echo -e "Use the ls command to find the name of the file or directory that is the smallest size inside the current directory.\nThen, enter the name of that directory or file.\n" | fold -w100 -s
 		echo -e "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu'.\n" | fold -w100 -s
         echo "If you need the list of directory info, enter 'info'; for flags, enter 'flags':"
 		problemBoolean=true
@@ -90,6 +90,11 @@ while [ ${keepGoing} = true ]; do
 				keepGoing=false
 				skip=true
 			elif [ "${answer}" == "solve" ]; then
+				currentDir=`pwd`
+				usr=`whoami`
+				if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+        				cd /home/${usr}/bash-tutorial
+				fi
 				echo -e "\n***"
 				echo -en "\n"
 				echo -e "The answer to this question is '${answerKey}'.\n"
