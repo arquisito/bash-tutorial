@@ -13,7 +13,7 @@ while [ "${keepGoing}" = true ]; do
 	if [ "${input}" == "1" ]; then
 		#go to menu
 		keepGoing=false
-		bash ./scripts/welcome.sh
+		bash ./welcome.sh
 	elif [ "${input}" == "2" ]; then
 		#exit
 		keepGoing=false
