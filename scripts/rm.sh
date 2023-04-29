@@ -47,3 +47,129 @@ done
 
 echo -en "\n"
 read -p "(Press enter to continue.) >" ans
+
+skip=false
+menu=false
+keepGoing=true
+while [ ${keepGoing} = true ]; do
+	echo -en "\n"
+	echo "Enter the number of the option you would like to proceed to:"
+	echo "1. Practice problem"
+	echo "2. Skip practice / Next tutorial"
+	echo "3. Return to menu"
+	echo -en "\n"
+	read -p "> " input
+    
+	if [ "${input}" == "1" ]; then
+        usr=`whoami`
+	    if [ -d "/home/${usr}/bash-tutorial/practice/myDirectory" ] ; then
+  		    sudo rm -r /home/${usr}/bash-tutorial/practice/myDirectory
+	    fi
+        
+        if [ ! -d "/home/${usr}/bash-tutorial/practice/removeThisDirectory" ] ; then
+            sudo mkdir ./practice/removeThisDirectory
+        fi
+        
+		# practice
+		echo -en "\n"
+		echo -e "Practice Problem:\n"
+		echo -e "Use the rm command to remove the directory inside of the 'practice' directory.\nThen, enter the name of the directory you removed.\n"
+		echo -e "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu'.\n" | fold -w100 -s
+        	echo "If you need the list of flags, enter 'flags':"
+		problemBoolean=true
+
+    usr=`whoami`
+    answerKey="removeThisDirectory"
+		while [ ${problemBoolean} = true ]; do
+			echo -en "\n"
+			read -p "> " answer
+			if [ "${answer}" == "${answerKey}" ]; then
+                if [ ! -d "/home/${usr}/bash-tutorial/practice/removeThisDirectory" ] ; then
+        	        echo -en "\n"
+		            echo "Correct! Moving on to the next command."
+		            problemBoolean=false
+		            keepGoing=false
+		            skip=true
+                else
+                    echo -e "\nYour answer was correct, but we detect that you did not remove that directory as instructed.\nPlease try again."
+                fi
+			elif [ "${answer}" == "skip" ]; then
+				echo -en "\n"
+				echo "Moving on to the next command."
+				problemBoolean=false
+				keepGoing=false
+				skip=true
+			elif [ "${answer}" == "solve" ]; then
+				currentDir=`pwd`
+				if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+        				cd /home/${usr}/bash-tutorial
+				fi
+				echo -e "\n***"
+				echo -en "\n"
+                echo "The answer to this question is ‘${answerKey}’."
+				echo -e "\nThere are multiple ways to delete this directory, but we did it with the following commands:"
+				echo "(Note: This assumes that you are starting in the bash-tutorial directory.)"
+				echo -en "\n"
+				echo "> cd practice (This moves to the practice directory, which you can see here:)"
+				cd practice
+                pwd
+				echo -e "\n> ls (This will list all non-hidden files in the practice directory)"
+				ls
+				echo -en "\n"
+				echo "As you can see, '${answerKey}' is the directory we need to delete. We do so like this:"
+                echo -e "\n> sudo rm -rf removeThisDirectory (This will forcefully remove all files within the specified directory, including the directory)"
+                sudo rm -rf removeThisDirectory
+				echo -e "\n${answerKey} is the answer, but now we can check to see that we copied it properly:"
+				echo -e "\n> ls"
+				ls
+				echo -e "\nAs you can see, the ‘${answerKey}’ file has been removed from the 'practice' directory."
+				echo -e "\n***\n"
+				problemBoolean=false
+				cd ..
+				read -p "(Press enter to continue.)>" ans
+			elif [ "${answer}" == "menu" ]; then
+				echo -en "\n"
+				echo "Returning to the menu."
+				problemBoolean=false
+				keepGoing=false
+				menu=true
+      elif [ "${answer}" == "flags" ]; then
+				echo -en "\n"
+        for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
+            echo -e "${flagInfo[$x]}"
+        done
+			else
+				${answer}
+				if [ $? -ne 0 ]; then
+					echo "Command failed. Try another input."
+					sleep 2
+				fi
+			fi
+		done
+	elif [ "${input}" == "2" ]; then
+		echo -en "\n"
+		echo "Moving on to the next command."
+		keepGoing=false
+		skip=true
+	elif [ "${input}" == "3" ]; then
+		echo -en "\n"
+		echo "Returning to the menu."
+		keepGoing=false
+		menu=true
+	else 
+		echo "You entered an invalid input. Please try again."
+	fi
+done
+
+currentDir=`pwd`
+usr=`whoami`
+if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
+	cd /home/${usr}/bash-tutorial
+fi
+if [ ${skip} = true ]; then
+	sleep 2
+	bash ./scripts/rm.sh
+elif [ ${menu} = true ]; then
+	sleep 2
+	bash ./welcome.sh
+fi	
