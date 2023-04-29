@@ -168,7 +168,7 @@ if [ -d /home/${usr}/bash-tutorial/practice/chmodDir ]; then
 fi
 if [ ${skip} = true ]; then
 	sleep 2
-	bash ./scripts/chmod.sh
+	bash ./scripts/history.sh
 elif [ ${menu} = true ]; then
 	sleep 2
 	bash ./welcome.sh
