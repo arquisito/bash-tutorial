@@ -105,8 +105,9 @@ while [ ${keepGoing} = true ]; do
 				echo "You can see 'changeMyPermissions.txt' is located in this directory. We can check its permissions using ls -la:"
 				echo -e "\n> ls -la"
 				ls -la
+				echo -en "\n"
 				read -p "(Press enter to continue.)>" ans
-				"You can see that groups and others have no permissions with this file whatsoever. So, we change its permissions using the chmod command:" | fold -w100 -s
+				echo -e "You can see that groups and others have no permissions with this file whatsoever. So, we change its permissions using the chmod command:" | fold -w100 -s
                 echo -e "\n> sudo chmod 733 changeMyPermissions.txt (733 = RWX by owner, WX by group, and WX by everyone else)"
                 sudo chmod 733 changeMyPermissions.txt
 				echo -e "\nThis command requires sudo because we are technically not the owner, so we have to elevate our privileges to change the mode of this file." | fold -w100 -s
