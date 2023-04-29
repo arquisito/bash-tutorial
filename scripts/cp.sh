@@ -57,6 +57,7 @@ for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
     echo -e "${flagInfo[$x]}"
 done
 
+echo -en "\n"
 read -p "(Press enter to continue.) >" ans
 
 skip=false
