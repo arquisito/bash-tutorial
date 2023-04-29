@@ -11,11 +11,11 @@ echo -e "\nYou must have sudo permission to run this command.\n"
 echo "This is the syntax for the rm command:"
 echo -e "\trm [flags] [file/directory name]"
 echo -e "\nIf you had a list of files, for example:"
-echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4"
+echo -e "\n\t1.txt\t\t2.txt\t\t3.txt\t\t4"
 echo -e "\nand wanted to remove the ‘1.txt’ file, you would use the command:"
 echo -e "\n\trm 1.txt"
 echo -e "\nThe directory would now look like this:"
-echo -e "\n\t2.xt\t\t3.txt\t\t4"
+echo -e "\n\t2.txt\t\t3.txt\t\t4"
 echo -en "\n"
 
 read -p "(Press enter to continue.) >" ans
@@ -168,7 +168,7 @@ if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
 fi
 if [ ${skip} = true ]; then
 	sleep 2
-	bash ./scripts/rm.sh
+	bash ./scripts/cat.sh
 elif [ ${menu} = true ]; then
 	sleep 2
 	bash ./welcome.sh
