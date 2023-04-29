@@ -60,8 +60,10 @@ while [ ${keepGoing} = true ]; do
 			echo -en "\n"
 			read -p "> " answer
 		if [ "${answer}" == "sudo history -c" ] || [ "${answer}" == "history -c" ] ; then
+			sudo history -c
                 	echo -en "\n"
 		        	echo "You've done it; you cleared your history!"
+				echo -e "\nMoving on..."
 		        	problemBoolean=false
 		        	keepGoing=false
 		        	skip=true
