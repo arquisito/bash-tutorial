@@ -26,7 +26,7 @@ echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4"
 echo -e "\nand wanted to copy the contents of 1.txt into 4 (which is a directory), you would use the command:" | fold -w100 -s
 echo -e "\n\tcp 1.txt 4"
 echo -e "\nIn this case, since 4 is a directory, 1.txt will be copied into the 4 directory under the same name:" | fold -w100 -s
-echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4(dir)"
+echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4"
 echo -e "\n\t//contents of 4\n\t\t1.txt"
 
 read -p "(Press enter to continue.) >" ans
@@ -34,7 +34,25 @@ read -p "(Press enter to continue.) >" ans
 echo -e "\nIf you had the same list of files, but instead of only copying 1.txt into 4, you wanted to copy 2.txt and 3.txt as well, you would use the command:" | fold -w100 -s
 echo -e "\n\tcp 1.txt 2.txt 3.txt 4"
 echo -e "\nIn this case, all the specified files will be copied into the 4 directory:" | fold -w100 -s
-echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4(dir)"
+echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4"
 echo -e "\n\t//contents of 4\n\t\t1.txt\t2.txt\t3.txt"
+
+read -p "(Press enter to continue.) >" ans
+
+flagInfo=("Here are some useful flags for the cp command:"
+"\tcp -i\t\t\t\tmakes the command ask the user for confirmation before moving and"
+"\t\t\t\t\t   overwriting a file. The user must press ‘y’ for confirmation."
+"\tcp -f\t\t\t\tby default, the command will ask the user for confirmation when overwriting the"
+"\t\t\t\t\t   destination file if that file is write-protected. This flag forcefully"
+"\t\t\t\t\t   overwrites the destination file and deletes the source file."
+"\tcp -b\t\t\t\tcreates a backup file for the file being overwritten when"
+"\t\t\t\t\t   using the cp command. This new file will have a tilde (~) appended to it."
+"\tcp *\t\t\t\tcopies all files that have the same ending following the asterisk"
+"\t\t\t\t\t   (*.txt will copy all text files in the current directory)")
+
+echo -en "\n"
+for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
+    echo -e "${flagInfo[$x]}"
+done
 
 read -p "(Press enter to continue.) >" ans
