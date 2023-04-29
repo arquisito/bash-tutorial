@@ -102,7 +102,7 @@ while [ ${keepGoing} = true ]; do
 				echo -e "\n> ls (This will list all non-hidden files in the chmodDir directory)"
 				ls
 				echo -en "\n"
-				echo "You can see 'changeMyPermissions.txt' is located in this directory. So, we change its permissions using the chmod command:"
+				echo "You can see 'changeMyPermissions.txt' is located in this directory. So, we change its permissions using the chmod command:" | fold -w100 -s
                 echo -e "\n> sudo chmod 733 changeMyPermissions.txt (733 = RWX by owner, WX by group, and WX by everyone else)"
                 sudo chmod 733 changeMyPermissions.txt
 				echo -e "\nThis command requires sudo because we are technically not the owner, so we have to elevate our privileges to change the mode of this file." | fold -w100 -s
