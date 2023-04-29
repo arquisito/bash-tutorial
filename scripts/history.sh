@@ -86,6 +86,7 @@ while [ ${keepGoing} = true ]; do
 				history -c
                 echo -e "\nThis simple command has cleared your entire command history, which you can check by using the history command again:" | fold -w100 -s
 				history
+				history
 				echo -e "\nAs you can see, your history has been cleared except for your new execution of history."
 				echo -e "\n***\n"
 				problemBoolean=false
