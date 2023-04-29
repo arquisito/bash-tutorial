@@ -1,6 +1,6 @@
 clear
 echo -en "\n"
-echo "11. chmod"
+echo "10. chmod"
 echo -en "\n"
 echo "chmod stands for 'Change Mode'."
 echo -e "\nThis command is used to change the access mode of a file."
