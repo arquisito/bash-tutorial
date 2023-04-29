@@ -1,6 +1,6 @@
 ## Overview
 
-This is a simple bash script that serves as a tutorial for bash commands. It operates under the assumption that you are using a Linux-based operating system.
+This is a simple bash script that serves as a tutorial for bash commands. It operates under the assumption that you are using a Linux-based operating system, or can otherwise run bash commands.
 
 ## Installation
 
