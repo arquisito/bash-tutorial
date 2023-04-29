@@ -71,7 +71,7 @@ while [ ${keepGoing} = true ]; do
         while [ ${problemBoolean} = true ]; do
 			echo -en "\n"
 			read -p "> " answer
-            if [ -r /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt && -w /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt && -x /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt] ; then
+            if [ -r /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] && [ -w /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] && [ -x /home/${usr}/bash-tutorial/practice/chmodDir/changeMyPermissions.txt ] ; then
                 echo -en "\n"
 		        echo "The file permissions have been changed! Moving on to the next command."
 		        problemBoolean=false
