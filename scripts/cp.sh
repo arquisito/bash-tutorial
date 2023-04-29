@@ -179,7 +179,7 @@ if [ "${currentDir}" != "/home/${usr}/bash-tutorial" ]; then
 fi
 if [ ${skip} = true ]; then
 	sleep 2
-	bash ./scripts/cp.sh
+	bash ./scripts/rm.sh
 elif [ ${menu} = true ]; then
 	sleep 2
 	bash ./welcome.sh
