@@ -124,6 +124,7 @@ while [ ${keepGoing} = true ]; do
 				echo -e "\n***\n"
 				problemBoolean=false
 				cd ..
+				read -p "(Press enter to continue.)>" ans
 			elif [ "${answer}" == "menu" ]; then
 				echo -en "\n"
 				echo "Returning to the menu."
