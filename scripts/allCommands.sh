@@ -20,11 +20,10 @@ echo "5. mkdir (Make Directory)"
 echo "6. mv (Move)"
 echo "7. cp (Copy)"
 echo "8. rm (Remove)"
-echo "9. echo (Echo Text)"
-echo "10. cat (Concatenate)"
-echo "11. chmod (Change Mode)"
-echo "12. history (Print History)"
-echo "13. Return to menu"
+echo "9. cat (Concatenate)"
+echo "10. chmod (Change Mode)"
+echo "11. history (Print History)"
+echo "12. Return to menu"
 echo -en "\n"
 read -p "> " input
 
@@ -85,24 +84,18 @@ while [ ${keepGoing} = true ]; do
 		sleep 2
 		bash ./scripts/cat.sh
 	elif [ "${input}" == "10" ]; then
-		#go to nano
-		keepGoing=false
-		echo "Loading tutorial 10: nano..."
-		sleep 2
-		bash ./scripts/nano.sh
-	elif [ "${input}" == "11" ]; then
 		#go to chmod
 		keepGoing=false
-		echo "Loading tutorial 11: chmod..."
+		echo "Loading tutorial 10: chmod..."
 		sleep 2
 		bash ./scripts/chmod.sh
-	elif [ "${input}" == "12" ]; then
+	elif [ "${input}" == "11" ]; then
 		#go to history
 		keepGoing=false
-		echo "Loading tutorial 12: history..."
+		echo "Loading tutorial 11: history..."
 		sleep 2
 		bash ./scripts/history.sh
-	elif [ "${input}" == "13" ]; then
+	elif [ "${input}" == "12" ]; then
 		#return to menu
 		keepGoing=false
 		echo "Returning to the menu."
@@ -110,6 +103,6 @@ while [ ${keepGoing} = true ]; do
 		bash ./welcome.sh
 	else
 		#invalid input
-		echo "You did not enter a number between 1-13. Please try again."
+		echo "You did not enter a number between 1-12. Please try again."
 	fi
 done
