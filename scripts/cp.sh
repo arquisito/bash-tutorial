@@ -96,7 +96,8 @@ while [ ${keepGoing} = true ]; do
 			echo -en "\n"
 			read -p "> " answer
 			if [ "${answer}" == "${answerKey}" ]; then
-                if [ -f "./practice/copied.txt" ] ; then
+			usr=`whoami`
+                if [ -f "/home/${usr}/bash-tutorial/practice/copied.txt" ] ; then
         	        echo -en "\n"
 		            echo "Correct! Moving on to the next command."
 		            problemBoolean=false
