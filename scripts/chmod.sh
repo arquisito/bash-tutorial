@@ -13,3 +13,25 @@ echo -e "\nThe digits for each number is determined by a simple calculation. Eac
 
 echo -en "\n"
 read -p "(Press enter to continue.) >" ans
+
+echo -e "\nAs an example: if you wanted to assign a file named ‘file.txt’ to have read, write, and execute owner permissions, read and execute group permissions, and read other permissions, you would use the following command:" | fold -w100 -s
+echo -e "\n\t> chmod 754 file.txt"
+echo -e "\nIn this case, the first number ‘7’ refers to all three permissions added together, 4 (read) + 2 (write) + 1 (execute) = 7. Similarly, the second number ‘5’ is determined by adding 4 (read) + 1 (execute) = 5. The last number, 4, simply refers to read permission." | fold -w100 -s
+
+echo -en "\n"
+read -p "(Press enter to continue.) >" ans
+
+flagInfo=("Here are some useful flags for the chmod command:"
+"\tchmod -R [directory]\t\t\t\tchanges permissions recursively to all files and directories"
+"\t\t\t\t\t\t   within the specified directory"
+"\tchmod -v [file]\t\t\t\tdisplays a message for each file that is processed indicating the"
+"\t\t\t\t\t\t   permission change that was made"
+"\tchmod -c [file]\t\t\t\tdisplays a message only for files that have its permissions changed")
+
+echo -en "\n"
+for ((x = 0; x < ${#flagInfo[@]}; x++)) ; do
+    echo -e "${flagInfo[$x]}"
+done
+
+echo -en "\n"
+read -p "(Press enter to continue.) >" ans
