@@ -110,13 +110,17 @@ while [ ${keepGoing} = true ]; do
 				echo -en "\n"
 				echo "> cd practice (This moves us to the 'practice' directory, as seen here:)"
 				cd practice
-                pwd
-				echo -e"\n> ls (This shows the files and directories inside of the 'practice' directory.)"
+                		pwd
+				echo -e "\n> ls (This shows the files and directories inside of the 'practice' directory.)"
 				ls
 				echo -en "\n"
 				echo "As you can see, 'catMe.txt' is the file we need to rename. We do so like this:"
-                echo -e "\n> sudo mv catMe.txt renamed.txt (sudo permissions are required to rename files.)"
-                sudo mv catMe.txt renamed.txt
+                		echo -e "\n> sudo mv catMe.txt renamed.txt (sudo permissions are required to rename files.)"
+                		sudo mv catMe.txt renamed.txt
+				echo -e "\ncatMe.txt is the answer, but now we can check to see that we renamed it properly:"
+				echo -e "\n> ls"
+				ls
+				echo -e "\nFinally, we can see that the file has been renamed."
 				echo -e "\n***\n"
 				problemBoolean=false
 				cd ..
