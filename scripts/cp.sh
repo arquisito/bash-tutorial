@@ -22,13 +22,19 @@ echo -en "\n"
 read -p "(Press enter to continue.) >" ans
 
 echo -e "\nIf you had a new list of files, for example:"
-echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4(dir)"
+echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4"
 echo -e "\nand wanted to copy the contents of 1.txt into 4 (which is a directory), you would use the command:" | fold -w100 -s
-echo -e "\n\tcp 1.txt 4(dir)"
+echo -e "\n\tcp 1.txt 4"
 echo -e "\nIn this case, since 4 is a directory, 1.txt will be copied into the 4 directory under the same name:" | fold -w100 -s
 echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4(dir)"
-echo -e "\t//contents of 4\n\t\t1.txt"
-	1.txt	2.txt	3.txt	4
+echo -e "\n\t//contents of 4\n\t\t1.txt"
 
 read -p "(Press enter to continue.) >" ans
 
+echo -e "\nIf you had the same list of files, but instead of only copying 1.txt into 4, you wanted to copy 2.txt and 3.txt as well, you would use the command:" | fold -w100 -s
+echo -e "\n\tcp 1.txt 2.txt 3.txt 4"
+echo -e "\nIn this case, all the specified files will be copied into the 4 directory:" | fold -w100 -s
+echo -e "\n\t1.txt\t\t2.xt\t\t3.txt\t\t4(dir)"
+echo -e "\n\t//contents of 4\n\t\t1.txt\t2.txt\t3.txt"
+
+read -p "(Press enter to continue.) >" ans
