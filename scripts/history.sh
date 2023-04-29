@@ -133,7 +133,7 @@ if [ -d /home/${usr}/bash-tutorial/practice/chmodDir ]; then
 fi
 if [ ${skip} = true ]; then
 	sleep 2
-	bash ./scripts/history.sh
+	bash ./scripts/ending.sh
 elif [ ${menu} = true ]; then
 	sleep 2
 	bash ./welcome.sh
