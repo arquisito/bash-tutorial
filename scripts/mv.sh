@@ -72,7 +72,7 @@ while [ ${keepGoing} = true ]; do
 		# practice
 		echo -en "\n"
 		echo -e "Practice Problem:\n"
-		echo -e "Use the mv command to rename the text file inside of the 'practice' directory.\nThen, enter the name of the original file (including the '.txt').\n"
+		echo -e "Use the mv command to rename the text file inside of the 'practice' directory to 'renamed.txt'.\nThen, enter the name of the original file (including the '.txt').\n"
 		echo -e "To show the solution, enter 'solve'. To skip this question and proceed to the next tutorial, enter 'skip'. To return to the menu, enter 'menu'.\n" | fold -w100 -s
         	echo "If you need the list of flags, enter 'flags':"
 		problemBoolean=true
@@ -83,7 +83,7 @@ while [ ${keepGoing} = true ]; do
 			echo -en "\n"
 			read -p "> " answer
 			if [ "${answer}" == "${answerKey}" ]; then
-                if [ -f "renamed.txt" ./practice ] ; then
+                if [ -f "./practice/renamed.txt" ] ; then
         	        echo -en "\n"
 		            echo "Correct! Moving on to the next command."
 		            problemBoolean=false
