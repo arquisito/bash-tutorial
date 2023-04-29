@@ -66,7 +66,7 @@ while [ ${keepGoing} = true ]; do
   		    sudo rm -r /home/${usr}/bash-tutorial/practice/myDirectory
 	    fi
     
-        if [ -f "renamed.txt" ./practice ] ; then
+        if [ -f "./practice/renamed.txt" ] ; then
             sudo mv renamed.txt catMe.txt ./practice
         fi
 		# practice
