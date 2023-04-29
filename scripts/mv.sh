@@ -67,7 +67,7 @@ while [ ${keepGoing} = true ]; do
 	    fi
     
         if [ -f "./practice/renamed.txt" ] ; then
-            sudo mv renamed.txt catMe.txt ./practice
+            sudo mv ./practice/renamed.txt ./practice/catMe.txt
         fi
 		# practice
 		echo -en "\n"
