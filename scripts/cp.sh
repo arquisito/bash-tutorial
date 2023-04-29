@@ -76,12 +76,6 @@ while [ ${keepGoing} = true ]; do
 	    if [ -d "/home/${usr}/bash-tutorial/practice/myDirectory" ] ; then
   		    sudo rm -r /home/${usr}/bash-tutorial/practice/myDirectory
 	    fi
-    
-        if [ -f "./practice/renamed.txt" ] ; then
-            sudo mv ./practice/renamed.txt ./practice/copyMe.txt
-        elif [ -f "./practice/catMe.txt" ] ; then
-            sudo mv ./practice/catMe.txt ./practice/copyMe.txt
-        fi
         
         if [ -f "./practice/copied.txt" ] ; then
             sudo rm -r ./practice/copied.txt
